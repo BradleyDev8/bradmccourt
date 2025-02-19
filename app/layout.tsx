@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/ui/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,9 +20,6 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.className} dark:dark overflow-x-hidden bg-app-bg text-high-contrast-text`}>
         {children}
-        <div className=" h-8">
-          <Footer />
-        </div>
       </body>
     </html>
   );

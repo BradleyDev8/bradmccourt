@@ -1,6 +1,6 @@
 import Avatar from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { Card } from "@/components/ui/card";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { 
     Tooltip,
@@ -11,13 +11,13 @@ import {
 
 const techStack = [
     { name: "TypeScript", icon: "/tech-icons/TypeScript Icon.svg" },
-    { name: "JavaScript", icon: "/tech-icons/JavaScript Icon.svg" },
+    // { name: "JavaScript", icon: "/tech-icons/JavaScript Icon.svg" },
     { name: "React", icon: "/tech-icons/React Icon.svg" },
     { name: "Next.js", icon: "/tech-icons/Next.js Icon.svg" },
     { name: "Node.js", icon: "/tech-icons/Node.js Icon.svg" },
     { name: "Tailwind CSS", icon: "/tech-icons/Tailwind CSS Icon.svg" },
-    { name: "Git", icon: "/tech-icons/Git Icon.svg" },
-    { name: "Docker", icon: "/tech-icons/Docker Icon.svg" },
+    // { name: "Git", icon: "/tech-icons/Git Icon.svg" },
+    // { name: "Docker", icon: "/tech-icons/Docker Icon.svg" },
     { name: "AWS", icon: "/tech-icons/AWS Icon.svg" },
 ];
 
@@ -58,6 +58,31 @@ export default function Home() {
                                 </Tooltip>
                             ))}
                         </TooltipProvider>
+                    </div>
+                </div>
+                <Separator className="bg-white" />
+                <div className="flex flex-col gap-2">
+                    <span className="font-medium">Projects</span>
+                    <div className="flex flex-col gap-2">
+                        <Card>
+                            <CardHeader>
+                                <div className="flex flex-col gap-4">
+                                    <div>
+                                        <CardTitle>Owens Academy</CardTitle>
+                                        <CardDescription>
+                                            <p>Irish Dancing School Website - Built with Next.js, Tailwind CSS, and TypeScript</p>
+                                        </CardDescription>
+                                    </div>
+                                    <Image
+                                        src="/owensAca.png"
+                                        alt="Owens Academy Website Screenshot"
+                                        width={800}
+                                        height={400}
+                                        className="rounded-lg object-cover"
+                                    />
+                                </div>
+                            </CardHeader>
+                        </Card>
                     </div>
                 </div>
             </div>

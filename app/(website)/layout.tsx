@@ -1,7 +1,7 @@
 import { NavigationMenu } from "@/components/ui/navigation-menu";
 import Sidebar  from "@/components/ui/sidebar";
 import { menuItems } from "./menu-items";
-
+import Footer from "@/components/ui/footer";
 
 export default function WebsiteLayout({children,}: {children: React.ReactNode}) {
     return (
@@ -12,6 +12,7 @@ export default function WebsiteLayout({children,}: {children: React.ReactNode}) 
             <div className="flex h-full w-full flex-col justify-between">
                 <div className="flex flex-col gap-16 py-8 md:gap-24 md:py-20">
                     {children}
+                    <Footer />
                 </div>
             </div>
         </div>
