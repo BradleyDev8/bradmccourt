@@ -29,7 +29,7 @@ export default function Contact() {
         <span className="font-medium">Social</span>
         <div className="flex gap-4">
           <Link
-            href="https://twitter.com/bradmccourt"
+            href="https://twitter.com/LewisBradley77"
             target="_blank"
             rel="noopener noreferrer"
             className="text-high-contrast-text hover:opacity-90"
@@ -47,7 +47,7 @@ export default function Contact() {
             <FontAwesomeIcon icon={faLinkedin} className="h-6 w-6" />
           </Link>
           <Link
-            href="https://instagram.com/bradmccourt"
+            href="https://instagram.com/bradmccourt_"
             target="_blank"
             rel="noopener noreferrer"
             className="text-high-contrast-text hover:opacity-90"

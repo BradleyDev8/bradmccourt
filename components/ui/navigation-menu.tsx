@@ -24,7 +24,7 @@ export function NavigationMenu({ menuItems }: NavigationMenuProps) {
     >
       <div className="flex w-full items-center justify-between">
         <Link href="/" className="flex select-none flex-col hover:opacity-90">
-          <span>Brad McCourt</span>
+          <span className="highlight highlight-[#2E8B57] px-2">Brad McCourt</span>
           <span className="text-low-contrast-text">Software Engineer</span>
         </Link>
 

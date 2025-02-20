@@ -38,18 +38,18 @@ export default function Home() {
                 {/* Tech Stack Section */}
                 <div className="flex flex-col gap-2">
                     <span className="font-medium">Tech Stack</span>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-3 gap-4">
                         <TooltipProvider>
                             {techStack.map((tech) => (
                                 <Tooltip key={tech.name}>
                                     <TooltipTrigger>
-                                        <Card className="flex items-center justify-center p-6 hover:bg-ui-component-hover transition-colors">
+                                        <Card className="flex items-center justify-center p-3 md:p-6 hover:bg-ui-component-hover transition-colors">
                                             <Image
                                                 src={tech.icon}
                                                 alt={`${tech.name} icon`}
                                                 width={48}
                                                 height={48}
-                                                className="w-12 h-12"
+                                                className="w-8 h-8 md:w-12 md:h-12"
                                             />
                                         </Card>
                                     </TooltipTrigger>
@@ -68,55 +68,55 @@ export default function Home() {
                     <div className="flex flex-col gap-4">
                         <Card>
                             <CardHeader>
-                                <div className="flex flex-row gap-4">
-                                    <div className="flex min-w-[100px] w-[100px] h-[100px] items-center justify-center">
-                                        <Image
-                                            src="/hamrob.png"
-                                            alt="Hamilton Robson Logo"
-                                            width={100}
-                                            height={100}
-                                            className="w-full h-full object-contain bg-white rounded-lg"
-                                        />
-                                    </div>
-                                    <div className="flex-1">
-                                        <div className="flex flex-col gap-1">
+                                <div className="flex flex-col gap-4">
+                                    <div className="flex flex-row gap-4 items-center">
+                                        <div className="flex min-w-[60px] w-[60px] h-[60px] md:min-w-[100px] md:w-[100px] md:h-[100px] items-center justify-center">
+                                            <Image
+                                                src="/hamrob.png"
+                                                alt="Hamilton Robson Logo"
+                                                width={100}
+                                                height={100}
+                                                className="w-full h-full object-contain bg-white rounded-lg"
+                                            />
+                                        </div>
+                                        <div>
                                             <div className="text-sm text-low-contrast-text">
                                                 Jul 2023 — Present
                                             </div>
                                             <CardTitle>Hamilton Robson - Software Engineer</CardTitle>
-                                            <CardDescription>
-                                                <p>As a Full Stack Engineer, I specialise in developing scalable and efficient solutions across various platforms using
-                                                TypeScript, React, React Native, Node.js and Next.js.</p>
-                                            </CardDescription>
                                         </div>
                                     </div>
+                                    <CardDescription>
+                                        <p>As a Full Stack Engineer, I specialise in developing scalable and efficient solutions across various platforms using
+                                        TypeScript, React, React Native, Node.js and Next.js.</p>
+                                    </CardDescription>
                                 </div>
                             </CardHeader>
                         </Card>
                         <Card>
                             <CardHeader>
-                                <div className="flex flex-row gap-4">
-                                    <div className="flex min-w-[100px] w-[100px] h-[100px] items-center justify-center">
-                                        <Image
-                                            src="/ulsterUni.png"
-                                            alt="Ulster University Logo"
-                                            width={100}
-                                            height={100}
-                                            className="w-full h-full object-contain bg-white rounded-lg"
-                                        />
-                                    </div>
-                                    <div className="flex-1">
-                                        <div className="flex flex-col gap-1">
+                                <div className="flex flex-col gap-4">
+                                    <div className="flex flex-row gap-4 items-center">
+                                        <div className="flex min-w-[60px] w-[60px] h-[60px] md:min-w-[100px] md:w-[100px] md:h-[100px] items-center justify-center">
+                                            <Image
+                                                src="/ulsterUni.png"
+                                                alt="Ulster University Logo"
+                                                width={100}
+                                                height={100}
+                                                className="w-full h-full object-contain bg-white rounded-lg"
+                                            />
+                                        </div>
+                                        <div>
                                             <div className="text-sm text-low-contrast-text">
                                                 May 2021 — May 2022
                                             </div>
                                             <CardTitle>Ulster University - Web Developer (Placement)</CardTitle>
-                                            <CardDescription>
-                                                <p>providing a solution for students during the pandemic by creating a front-end application that
-                                                allowed students to check which PCs were available and in use for remote access.</p>
-                                            </CardDescription>
                                         </div>
                                     </div>
+                                    <CardDescription>
+                                        <p>providing a solution for students during the pandemic by creating a front-end application that
+                                        allowed students to check which PCs were available and in use for remote access.</p>
+                                    </CardDescription>
                                 </div>
                             </CardHeader>
                         </Card>
