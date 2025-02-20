@@ -31,10 +31,11 @@ export default function Home() {
                 </div>
                 <div className="flex flex-col gap-2">
                     <span className="font-medium">About</span>
-                    <p>A Full Stack Software Engineer with a passion for building scalable and efficient software. With expertise in distributed systems and cloud architecture, I focus on creating solutions that drive value at scale.</p>
-                    <p>My experience spans backend, frontend, and mobile development, with particular strength in frontend development. While I&apos;m technology-agnostic and can adapt to any stack, I excel in Next.js, React, and Node.js with TypeScript. I&apos;m driven by clean code principles and always aim to balance technical excellence with practical busisness needs.</p>
+                    <p>Full Stack Software Engineer passionate about scalable, efficient solutions.</p>
+                    <p>Skilled in distributed systems, cloud architecture, and development with Next.js, React, TypeScript, and Node.js. Focused on clean code and business value.</p>
                 </div>
                 <Separator className="bg-white" />
+                {/* Tech Stack Section */}
                 <div className="flex flex-col gap-2">
                     <span className="font-medium">Tech Stack</span>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -61,6 +62,68 @@ export default function Home() {
                     </div>
                 </div>
                 <Separator className="bg-white" />
+                {/* Experience Section */}
+                <div className="flex flex-col gap-2">
+                    <span className="font-medium">Experience</span>
+                    <div className="flex flex-col gap-4">
+                        <Card>
+                            <CardHeader>
+                                <div className="flex flex-row gap-4">
+                                    <div className="flex min-w-[100px] w-[100px] h-[100px] items-center justify-center">
+                                        <Image
+                                            src="/hamrob.png"
+                                            alt="Hamilton Robson Logo"
+                                            width={100}
+                                            height={100}
+                                            className="w-full h-full object-contain bg-white rounded-lg"
+                                        />
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="flex flex-col gap-1">
+                                            <div className="text-sm text-low-contrast-text">
+                                                Jul 2023 — Present
+                                            </div>
+                                            <CardTitle>Hamilton Robson - Software Engineer</CardTitle>
+                                            <CardDescription>
+                                                <p>As a Full Stack Engineer, I specialise in developing scalable and efficient solutions across various platforms using
+                                                TypeScript, React, React Native, Node.js and Next.js.</p>
+                                            </CardDescription>
+                                        </div>
+                                    </div>
+                                </div>
+                            </CardHeader>
+                        </Card>
+                        <Card>
+                            <CardHeader>
+                                <div className="flex flex-row gap-4">
+                                    <div className="flex min-w-[100px] w-[100px] h-[100px] items-center justify-center">
+                                        <Image
+                                            src="/ulsterUni.png"
+                                            alt="Ulster University Logo"
+                                            width={100}
+                                            height={100}
+                                            className="w-full h-full object-contain bg-white rounded-lg"
+                                        />
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="flex flex-col gap-1">
+                                            <div className="text-sm text-low-contrast-text">
+                                                May 2021 — May 2022
+                                            </div>
+                                            <CardTitle>Ulster University - Web Developer (Placement)</CardTitle>
+                                            <CardDescription>
+                                                <p>providing a solution for students during the pandemic by creating a front-end application that
+                                                allowed students to check which PCs were available and in use for remote access.</p>
+                                            </CardDescription>
+                                        </div>
+                                    </div>
+                                </div>
+                            </CardHeader>
+                        </Card>
+                    </div>
+                </div>
+                <Separator className="bg-white" />
+                {/* Project Section */}
                 <div className="flex flex-col gap-2">
                     <span className="font-medium">Projects</span>
                     <div className="flex flex-col gap-2">
@@ -85,6 +148,8 @@ export default function Home() {
                         </Card>
                     </div>
                 </div>
+                <Separator className="bg-white" />
+
             </div>
         </main>
         </>
