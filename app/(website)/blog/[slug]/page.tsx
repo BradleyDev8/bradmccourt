@@ -2,6 +2,10 @@ import { getPostBySlug, getAllPosts } from '@/lib/blog';
 import { formatDate } from '@/lib/string';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
+
+type Params = Promise<{ slug: string }>;
+type SearchParams = Promise<{ [key: string]: string | string[] | undefined }>;
 
 export async function generateStaticParams() {
   const posts = await getAllPosts();
@@ -10,11 +14,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata(props: {
+  params: Params;
+  searchParams: SearchParams;
+}): Promise<Metadata> {
+  const params = await props.params;
+  
   try {
-    const resolvedParams = await Promise.resolve(params);
-    const post = await getPostBySlug(resolvedParams.slug);
-    
+    const post = await getPostBySlug(params.slug);
     return {
       title: `${post.title} | Brad McCourt`,
       description: post.description,
@@ -27,10 +34,14 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
+export default async function BlogPost(props: {
+  params: Params;
+  searchParams: SearchParams;
+}) {
+  const params = await props.params;
+  
   try {
-    const resolvedParams = await Promise.resolve(params);
-    const post = await getPostBySlug(resolvedParams.slug);
+    const post = await getPostBySlug(params.slug);
 
     if (!post) {
       notFound();
