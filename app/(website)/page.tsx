@@ -24,7 +24,7 @@ const techStack = [
 export default function Home() {
     return (
         <>  
-        <main className="flex flex-col gap-16 md:gap=24">
+        <main className="flex flex-col gap-16 md:gap-24">
             <div className="flex flex-col gap-4">
                 <div className="block md:hidden">
                     <Avatar width={56} height={56} />
