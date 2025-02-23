@@ -127,7 +127,7 @@ export default function Home() {
                 </div>
                 <Separator className="bg-white" />
                 {/* Project Section */}
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-4">
                     <span className="font-medium">Projects</span>
                     <div className="flex flex-col gap-2">
                         <Card>
