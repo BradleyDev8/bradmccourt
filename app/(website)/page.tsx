@@ -1,5 +1,5 @@
 import Avatar from "@/components/ui/avatar";
-import { Separator } from "@/components/ui/separator";
+// import { Separator } from "@/components/ui/separator";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { 
@@ -37,7 +37,7 @@ export default function Home() {
                     <p>Full Stack Software Engineer passionate about scalable, efficient solutions.</p>
                     <p>Skilled in distributed systems, cloud architecture, and development with Next.js, React, TypeScript, and Node.js. Focused on clean code and business value.</p>
                 </div>
-                <Separator className="bg-white" />
+                {/* <Separator className="bg-white" /> */}
                 {/* Tech Stack Section */}
                 <div className="flex flex-col gap-2">
                     <span className="font-medium">Tech Stack</span>
@@ -64,7 +64,7 @@ export default function Home() {
                         </TooltipProvider>
                     </div>
                 </div>
-                <Separator className="bg-white" />
+                {/* <Separator className="bg-white" /> */}
                 {/* Experience Section */}
                 <div className="flex flex-col gap-2">
                     <span className="font-medium">Experience</span>
@@ -125,7 +125,7 @@ export default function Home() {
                         </Card>
                     </div>
                 </div>
-                <Separator className="bg-white" />
+                {/* <Separator className="bg-white" /> */}
                 {/* Project Section */}
                 <div className="flex flex-col gap-4">
                     <span className="font-medium">Projects</span>
@@ -188,7 +188,7 @@ export default function Home() {
                         </Card>
                     </div>
                 </div>
-                <Separator className="bg-white" />
+                {/* <Separator className="bg-white" /> */}
 
             </div>
         </main>
