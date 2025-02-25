@@ -11,6 +11,8 @@ import {
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { getAllPosts } from "@/lib/blog";
+import { formatDateWithTimeAgo } from "@/lib/string";
 
 const techStack = [
     { name: "TypeScript", icon: "/tech-icons/TypeScript Icon.svg" },
@@ -24,11 +26,14 @@ const techStack = [
     { name: "AWS", icon: "/tech-icons/AWS Icon.svg" },
 ];
 
-export default function Home() {
+export default async function Home() {
+    const posts = await getAllPosts();
+    const latestPosts = posts.slice(0, 4); // Get 4 latest posts
+    
     return (
         <>  
         <main className="flex flex-col gap-16 md:gap-24">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-12">
                 <div className="block md:hidden">
                     <Avatar width={56} height={56} />
                 </div>
@@ -62,6 +67,39 @@ export default function Home() {
                                 </Tooltip>
                             ))}
                         </TooltipProvider>
+                    </div>
+                </div>
+                {/* <Separator className="bg-white" /> */}
+                {/* Latest Articles Section */}
+                <div className="flex flex-col gap-4">
+                    <span className="font-medium">Latest Articles</span>
+                    <p className="text-low-contrast-text">
+                        I love writing about tech, programming, and life in general. Here are a few of my latest
+                        articles. You can find more on my <Link href="/blog" className="text-[#2E8B57] hover:underline">blog page</Link>.
+                    </p>
+                    <div className="flex flex-col gap-4">
+                        {latestPosts.map((post) => (
+                            <Link href={`/blog/${post.slug}`} key={post.slug}>
+                                <Card className="transition-all hover:bg-ui-component-hover">
+                                    <CardHeader>
+                                        <div className="flex flex-col gap-2">
+                                            <div className="flex justify-between items-center">
+                                                <CardTitle>{post.title}</CardTitle>
+                                                <div className="text-sm text-low-contrast-text">
+                                                    {post.readingTime ? `${post.readingTime} read` : '5 mins read'}
+                                                </div>
+                                            </div>
+                                            <div className="text-sm text-low-contrast-text">
+                                                {formatDateWithTimeAgo(post.publishedAt)}
+                                            </div>
+                                            <CardDescription className="py-1">
+                                                {post.description}
+                                            </CardDescription>
+                                        </div>
+                                    </CardHeader>
+                                </Card>
+                            </Link>
+                        ))}
                     </div>
                 </div>
                 {/* <Separator className="bg-white" /> */}
