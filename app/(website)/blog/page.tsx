@@ -1,5 +1,5 @@
 import { getAllPosts } from '@/lib/blog';
-import { formatDate } from '@/lib/string';
+import { formatDateWithTimeAgo } from '@/lib/string';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import Link from 'next/link';
 
@@ -22,12 +22,25 @@ export default async function BlogPage() {
 
       <div className="flex flex-col gap-4">
         {posts.map((post) => (
+          post.status === 'coming-soon' ? (
+            <Card className="transition-all hover:bg-ui-component-hover" key={post.slug}>
+              <CardHeader>
+                <div className="flex flex-col gap-2">
+                  <div className="text-sm text-low-contrast-text">
+                    Coming Soon
+                  </div>
+                  <CardTitle>{post.title}</CardTitle>
+                  <CardDescription>{post.description}</CardDescription>
+                </div>
+              </CardHeader>
+            </Card>
+          ) : (
           <Link href={`/blog/${post.slug}`} key={post.slug}>
             <Card className="transition-all hover:bg-ui-component-hover">
               <CardHeader>
                 <div className="flex flex-col gap-2">
                   <div className="text-sm text-low-contrast-text">
-                    {formatDate(post.publishedAt)}
+                    {formatDateWithTimeAgo(post.publishedAt)}
                   </div>
                   <CardTitle>{post.title}</CardTitle>
                   <CardDescription>{post.description}</CardDescription>
@@ -35,6 +48,7 @@ export default async function BlogPage() {
               </CardHeader>
             </Card>
           </Link>
+          )
         ))}
       </div>
     </main>

@@ -15,14 +15,22 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     })
   );
 
-  // Sort by date
-  return posts
-    .filter((post) => 
-      process.env.NODE_ENV === 'development' || post.status === 'published'
-    )
-    .sort((a, b) => 
-      new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-    );
+  // Filter posts
+  const filteredPosts = posts.filter((post) => 
+    process.env.NODE_ENV === 'development' || post.status === 'published' || post.status === 'coming-soon'
+  );
+  
+  // Separate coming soon posts and regular posts
+  const comingSoonPosts = filteredPosts.filter(post => post.status === 'coming-soon');
+  const regularPosts = filteredPosts.filter(post => post.status !== 'coming-soon');
+  
+  // Sort regular posts by date
+  const sortedRegularPosts = regularPosts.sort((a, b) => 
+    new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  );
+  
+  // Combine with coming soon posts first
+  return [...comingSoonPosts, ...sortedRegularPosts];
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost> {

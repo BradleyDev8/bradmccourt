@@ -79,8 +79,8 @@ export default async function Home() {
                     </p>
                     <div className="flex flex-col gap-4">
                         {latestPosts.map((post) => (
-                            <Link href={`/blog/${post.slug}`} key={post.slug}>
-                                <Card className="transition-all hover:bg-ui-component-hover">
+                            post.status === 'coming-soon' ? (
+                                <Card className="transition-all hover:bg-ui-component-hover" key={post.slug}>
                                     <CardHeader>
                                         <div className="flex flex-col gap-2">
                                             <div className="flex justify-between items-center">
@@ -90,7 +90,7 @@ export default async function Home() {
                                                 </div>
                                             </div>
                                             <div className="text-sm text-low-contrast-text">
-                                                {formatDateWithTimeAgo(post.publishedAt)}
+                                                Coming Soon
                                             </div>
                                             <CardDescription className="py-1">
                                                 {post.description}
@@ -98,7 +98,28 @@ export default async function Home() {
                                         </div>
                                     </CardHeader>
                                 </Card>
-                            </Link>
+                            ) : (
+                                <Link href={`/blog/${post.slug}`} key={post.slug}>
+                                    <Card className="transition-all hover:bg-ui-component-hover">
+                                        <CardHeader>
+                                            <div className="flex flex-col gap-2">
+                                                <div className="flex justify-between items-center">
+                                                    <CardTitle>{post.title}</CardTitle>
+                                                    <div className="text-sm text-low-contrast-text">
+                                                        {post.readingTime ? `${post.readingTime} read` : '5 mins read'}
+                                                    </div>
+                                                </div>
+                                                <div className="text-sm text-low-contrast-text">
+                                                    {formatDateWithTimeAgo(post.publishedAt)}
+                                                </div>
+                                                <CardDescription className="py-1">
+                                                    {post.description}
+                                                </CardDescription>
+                                            </div>
+                                        </CardHeader>
+                                    </Card>
+                                </Link>
+                            )
                         ))}
                     </div>
                 </div>

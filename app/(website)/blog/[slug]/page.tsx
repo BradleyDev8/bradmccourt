@@ -1,5 +1,5 @@
 import { getPostBySlug, getAllPosts } from '@/lib/blog';
-import { formatDate } from '@/lib/string';
+import { formatDateWithTimeAgo } from '@/lib/string';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
@@ -51,7 +51,7 @@ export default async function BlogPost(props: {
       <article className="prose prose-invert max-w-none">
         <h1>{post.title}</h1>
         <div className="text-low-contrast-text mb-8">
-          {formatDate(post.publishedAt)}
+          {post.publishedAt ? formatDateWithTimeAgo(post.publishedAt) : "Coming Soon"}
         </div>
         <MDXRemote source={post.content} />
       </article>

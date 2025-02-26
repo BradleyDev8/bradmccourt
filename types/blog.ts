@@ -7,5 +7,5 @@ export type BlogPost = {
     author: string;
     readingTime?: string;
     tags?: string[];
-    status: 'draft' | 'published';
+    status: 'draft' | 'published' | 'coming-soon';
   }
