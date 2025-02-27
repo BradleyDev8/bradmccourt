@@ -9,8 +9,38 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Brad McCourt",
-  description: "Brad McCourt is a software engineer and entrepreneur.",
+  title: "Brad McCourt | Software Engineer",
+  description: "Brad McCourt is a software engineer and entrepreneur specialising in full stack development with Next.js, React, TypeScript, and Node.js.",
+  metadataBase: new URL("https://bradmccourt.xyz"),
+  keywords: ["Brad McCourt", "Software Engineer", "Full Stack Developer", "Next.js", "React", "TypeScript", "Node.js", "Blog"],
+  authors: [{ name: "Brad McCourt" }],
+  creator: "Brad McCourt",
+  openGraph: {
+    type: "website",
+    locale: "en_GB",
+    url: "https://bradmccourt.xyz",
+    title: "Brad McCourt - Software Engineer",
+    description: "Brad McCourt is a software engineer and entrepreneur specialising in full stack development with Next.js, React, TypeScript, and Node.js.",
+    siteName: "Brad McCourt",
+    images: [
+      {
+        url: "/brad2.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Brad McCourt - Software Engineer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Brad McCourt - Software Engineer",
+    description: "Brad McCourt is a software engineer and entrepreneur specialising in full stack development with Next.js, React, TypeScript, and Node.js.",
+    images: ["/brad2.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +54,7 @@ export default function RootLayout({
         className={`${inter.className} dark:dark overflow-x-hidden bg-app-bg text-high-contrast-text`}
       >
         <Analytics />
-        <PlausibleProvider domain="bradmccourt.vercel.app">{children}</PlausibleProvider>
+        <PlausibleProvider domain="bradmccourt.xyz">{children}</PlausibleProvider>
       </body>
     </html>
   );
