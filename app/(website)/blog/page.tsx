@@ -23,7 +23,7 @@ export default async function BlogPage() {
       <div className="flex flex-col gap-4">
         {posts.map((post) => (
           post.status === 'coming-soon' ? (
-            <Card className="transition-all hover:bg-ui-component-hover" key={post.slug}>
+            <Card className="transition-all hover:bg-ui-component-hover opacity-60" key={post.slug}>
               <CardHeader>
                 <div className="flex flex-col gap-2">
                   <div className="text-sm text-low-contrast-text">

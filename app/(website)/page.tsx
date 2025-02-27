@@ -80,7 +80,7 @@ export default async function Home() {
                     <div className="flex flex-col gap-4">
                         {latestPosts.map((post) => (
                             post.status === 'coming-soon' ? (
-                                <Card className="transition-all hover:bg-ui-component-hover" key={post.slug}>
+                                <Card className="transition-all hover:bg-ui-component-hover opacity-60" key={post.slug}>
                                     <CardHeader>
                                         <div className="flex flex-col gap-2">
                                             <div className="flex justify-between items-center">
