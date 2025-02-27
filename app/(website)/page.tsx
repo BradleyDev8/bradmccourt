@@ -33,7 +33,7 @@ export default async function Home() {
     return (
         <>  
         <main className="flex flex-col gap-16 md:gap-24">
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-2 md:gap-12">
                 <div className="block md:hidden">
                     <Avatar width={56} height={56} />
                 </div>
@@ -84,9 +84,9 @@ export default async function Home() {
                                     <CardHeader>
                                         <div className="flex flex-col gap-2">
                                             <div className="flex justify-between items-center">
-                                                <CardTitle>{post.title}</CardTitle>
-                                                <div className="text-sm text-low-contrast-text">
-                                                    {post.readingTime ? `${post.readingTime} read` : '5 mins read'}
+                                                <CardTitle className="mr-2">{post.title}</CardTitle>
+                                                <div className="text-sm text-low-contrast-text whitespace-nowrap">
+                                                    {post.readingTime ? `${post.readingTime} read` : '🤔 mins read'}
                                                 </div>
                                             </div>
                                             <div className="text-sm text-low-contrast-text">
@@ -104,9 +104,9 @@ export default async function Home() {
                                         <CardHeader>
                                             <div className="flex flex-col gap-2">
                                                 <div className="flex justify-between items-center">
-                                                    <CardTitle>{post.title}</CardTitle>
-                                                    <div className="text-sm text-low-contrast-text">
-                                                        {post.readingTime ? `${post.readingTime} read` : '5 mins read'}
+                                                    <CardTitle className="mr-2">{post.title}</CardTitle>
+                                                    <div className="text-sm text-low-contrast-text whitespace-nowrap">
+                                                        {post.readingTime ? `${post.readingTime} read` : '8 mins read'}
                                                     </div>
                                                 </div>
                                                 <div className="text-sm text-low-contrast-text">
