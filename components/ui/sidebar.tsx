@@ -4,7 +4,7 @@
 import { usePathname } from "next/navigation";
 import SidebarLink from "@/components/ui/sidebar-link";
 import Avatar from "@/components/ui/avatar";
-
+import { ThemeToggle } from "./theme-toggle";
 export default function Sidebar({
   menuLinks,
 }: {
@@ -22,10 +22,11 @@ export default function Sidebar({
           <Avatar />
           <div>
             <span className="text-lg font-medium highlight highlight-[#2E8B57] px-2">Brad McCourt</span>
-            <p className="">Software Engineer</p>
+            <p className="">Software Engineer</p>  
+            <ThemeToggle />
           </div>
         </div>
-
+       
         <ul className="flex list-none flex-col gap-4 space-y-0">
           {menuLinks.map((link) => (
             <li key={link.href}>

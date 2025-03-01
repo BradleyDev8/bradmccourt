@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+html, body {
   height: 100%;
   width: 100vw;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -40,8 +41,63 @@ li {
   @apply space-y-2 text-low-contrast-text;
 }
 
+/* transition for theme toggle */
+.transition-theme {
+  transition: background-color 0.3s ease, 
+              color 0.3s ease, 
+              border-color 0.3s ease, 
+              box-shadow 0.3s ease;
+}
+
 @layer base {
+  /* Light theme (default) */
   :root {
+    --error: #e5484d;
+    --info: #0090ff;
+    --success: #30a46c;
+    --warning: #f5d90a;
+    --primary: hsla(234, 56%, 59%, 1);
+    --app-bg: #f8f9fa;
+    --sidebar-bg: #f1f3f5;
+    --ui-component-default: #e9ecef;
+    --ui-component-hover: #dee2e6;
+    --ui-component-pressed-selected: #ced4da;
+    --borders-non-interactive: #adb5bd;
+    --subtle-borders-interactive: #868e96;
+    --stronger-borders-interactive-focus-rings: #495057;
+    --solid-backgrounds: #343a40;
+    --hovered-solid-backgrounds: #212529;
+    --low-contrast-text: hsla(0, 0%, 45%, 1);
+    --high-contrast-text: hsla(0, 0%, 10%, 1);
+    --muted-text: hsla(0, 0%, 60%, 1);
+    --overlay-05: hsla(0, 0%, 0%, 0.05);
+    --overlay-10: hsla(0, 0%, 0%, 0.1);
+    --overlay-15: hsla(0, 0%, 0%, 0.15);
+    --overlay-20: hsla(0, 0%, 0%, 0.2);
+    --overlay-30: hsla(0, 0%, 0%, 0.3);
+    --overlay-40: hsla(0, 0%, 0%, 0.4);
+    --overlay-50: hsla(0, 0%, 0%, 0.5);
+    --overlay-60: hsla(0, 0%, 0%, 0.6);
+    --overlay-70: hsla(0, 0%, 0%, 0.7);
+    --overlay-80: hsla(0, 0%, 0%, 0.8);
+    --overlay-90: hsla(0, 0%, 0%, 0.9);
+    --overlay-95: hsla(0, 0%, 0%, 0.95);
+    --red-bg-border: #ffd8d8;
+    --blue-bg-border: #d8e6ff;
+    --green-bg-border: #d8ffd8;
+    --yellow-bg-border: #fff8d8;
+    --purple-bg-border: #f0d8ff;
+    --orange-bg-border: #ffe8d8;
+    --light-red-bg: #fff0f0;
+    --light-blue-bg: #f0f8ff;
+    --light-green-bg: #f0fff0;
+    --light-yellow-bg: #fffcf0;
+    --light-purple-bg: #fcf0ff;
+    --light-orange-bg: #fff8f0;
+  }
+
+  /* Dark theme - separate selector, not nested */
+  .dark {
     --error: #e5484d;
     --info: #0090ff;
     --success: #30a46c;
@@ -85,9 +141,7 @@ li {
     --light-purple-bg: #1e1523;
     --light-orange-bg: #121212;
   }
-}
 
-@layer base {
   h1 {
     @apply scroll-m-20 text-3xl font-medium tracking-tight text-high-contrast-text;
   }

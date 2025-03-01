@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: "media",
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,8 +11,6 @@ const config: Config = {
   safelist: [
     "bg-light-red-bg",
     "bg-light-green-bg",
-    { pattern: /^bg-light-.*-bg$/ },
-    { pattern: /^border-.*-bg-border$/ },
     "bg-ui-component-default",
     "border-red-bg-border",
     "border-green-bg-border",

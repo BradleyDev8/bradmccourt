@@ -48,7 +48,7 @@ export default async function BlogPost(props: {
     }
 
     return (
-      <article className="prose prose-invert max-w-none">
+      <article className="prose dark:prose-invert max-w-none">
         <h1>{post.title}</h1>
         <div className="text-low-contrast-text mb-8">
           {post.publishedAt ? formatDateWithTimeAgo(post.publishedAt) : "Coming Soon"}
