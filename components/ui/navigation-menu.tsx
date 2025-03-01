@@ -24,10 +24,10 @@ export function NavigationMenu({ menuItems }: NavigationMenuProps) {
     >
       <div className="flex w-full items-center justify-between">
         <Link href="/" className="flex select-none flex-col hover:opacity-90">
-          <span className="highlight highlight-[#2E8B57] px-2">Brad McCourt</span>
+          <span className="highlight highlight-[#2E8B57] px-2">Brade McCourt</span>
           <span className="text-low-contrast-text">Software Engineer</span>
         </Link>
-
+        
         <button
           className="pointer-cursor z-1 flex h-12 w-12 items-center justify-center rounded-md border border-borders-non-interactive bg-sidebar-bg text-low-contrast-text transition-all hover:border-subtle-borders-interactive hover:bg-ui-component-default hover:text-high-contrast-text"
           onClick={() => setMenuOpen((prev) => !prev)}

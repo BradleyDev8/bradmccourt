@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import PlausibleProvider from "next-plausible";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -51,10 +52,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.className} dark:dark overflow-x-hidden bg-app-bg text-high-contrast-text`}
+        className={`${inter.className} overflow-x-hidden bg-app-bg text-high-contrast-text`}
       >
-        <Analytics />
-        <PlausibleProvider domain="bradmccourt.xyz">{children}</PlausibleProvider>
+        <ThemeProvider>
+          <Analytics />
+          <PlausibleProvider domain="bradmccourt.xyz">{children}</PlausibleProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
