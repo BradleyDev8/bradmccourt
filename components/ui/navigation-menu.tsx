@@ -4,6 +4,7 @@ import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { ThemeToggle } from './theme-toggle'
 
 interface NavigationMenuProps {
   menuItems: { name: string; href: string }[];
@@ -28,12 +29,15 @@ export function NavigationMenu({ menuItems }: NavigationMenuProps) {
           <span className="text-low-contrast-text">Software Engineer</span>
         </Link>
         
-        <button
-          className="pointer-cursor z-1 flex h-12 w-12 items-center justify-center rounded-md border border-borders-non-interactive bg-sidebar-bg text-low-contrast-text transition-all hover:border-subtle-borders-interactive hover:bg-ui-component-default hover:text-high-contrast-text"
-          onClick={() => setMenuOpen((prev) => !prev)}
-        >
-          <HamburgerMenuIcon width={20} height={20} />
-        </button>
+        <div className="flex items-center space-x-2">
+          <ThemeToggle />
+          <button
+            className="pointer-cursor z-1 flex h-12 w-12 items-center justify-center rounded-md border border-borders-non-interactive bg-sidebar-bg text-low-contrast-text transition-all hover:border-subtle-borders-interactive hover:bg-ui-component-default hover:text-high-contrast-text"
+            onClick={() => setMenuOpen((prev) => !prev)}
+          >
+            <HamburgerMenuIcon width={20} height={20} />
+          </button>
+        </div>
       </div>
 
       <ul
