@@ -1,7 +1,7 @@
 'use client'
 
 import { useTheme } from '@/components/ui/theme-provider'
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline'
+import { Sun, Moon } from 'lucide-react'
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
@@ -13,9 +13,9 @@ export function ThemeToggle() {
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
-        <SunIcon className="h-5 w-5 text-high-contrast-text" />
+        <Sun className="h-5 w-5 text-high-contrast-text" />
       ) : (
-        <MoonIcon className="h-5 w-5 text-high-contrast-text" />
+        <Moon className="h-5 w-5 text-high-contrast-text" />
       )}
     </button>
   )
