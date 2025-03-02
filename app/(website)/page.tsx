@@ -39,8 +39,7 @@ export default async function Home() {
                 </div>
                 <div className="flex flex-col gap-2">
                     <span className="font-medium">About</span>
-                    <p>Full Stack Software Engineer passionate about scalable, efficient solutions.</p>
-                    <p>Skilled in distributed systems, cloud architecture, and development with Next.js, React, TypeScript, and Node.js. Focused on clean code and business value.</p>
+                    <p>As a Full Stack Software Engineer at Hamilton Robson, I enjoy tackling complex problems and building scalable solutions that make a real impact. With experience in building distributed systems and leveraging cloud technologies, I develop applications using Next.js, React, TypeScript, and Node.js. </p>
                 </div>
                 {/* <Separator className="bg-white" /> */}
                 {/* Tech Stack Section */}

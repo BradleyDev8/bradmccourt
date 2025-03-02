@@ -57,10 +57,10 @@ li {
     --success: #30a46c;
     --warning: #f5d90a;
     --primary: hsla(234, 56%, 59%, 1);
-    --app-bg: #f8f9fa;
-    --sidebar-bg: #f1f3f5;
-    --ui-component-default: #e9ecef;
-    --ui-component-hover: #dee2e6;
+    --app-bg: hsla(48.8 100% 96.9%);
+    --sidebar-bg: hsla(48.8 100% 96.9%);
+    --ui-component-default: hsla(48.8 100% 96.9%);
+    --ui-component-hover: hsla(48.8 100% 96.9%);
     --ui-component-pressed-selected: #ced4da;
     --borders-non-interactive: #adb5bd;
     --subtle-borders-interactive: #868e96;
