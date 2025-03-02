@@ -51,7 +51,7 @@ export default async function Home() {
                             {techStack.map((tech) => (
                                 <Tooltip key={tech.name}>
                                     <TooltipTrigger>
-                                        <Card className="flex items-center justify-center p-3 md:p-6 hover:bg-ui-component-hover transition-colors">
+                                        <Card className="flex items-center justify-center p-3 md:p-6 transition-colors">
                                             <Image
                                                 src={tech.icon}
                                                 alt={`${tech.name} icon`}
