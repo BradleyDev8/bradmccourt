@@ -50,8 +50,9 @@ export default async function BlogPost(props: {
     return (
       <article className="prose dark:prose-invert max-w-none">
         <h1>{post.title}</h1>
-        <div className="text-low-contrast-text mb-8">
-          {post.publishedAt ? formatDateWithTimeAgo(post.publishedAt) : "Coming Soon"}
+        <div className="flex justify-between items-center text-low-contrast-text mb-8">
+          <div>{post.publishedAt ? formatDateWithTimeAgo(post.publishedAt) : "Coming Soon"}</div>
+          <div>{post.readingTime ? `${post.readingTime} read` : '5 mins read'}</div>
         </div>
         <MDXRemote source={post.content} />
       </article>

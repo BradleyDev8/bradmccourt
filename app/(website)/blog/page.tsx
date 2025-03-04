@@ -39,8 +39,13 @@ export default async function BlogPage() {
             <Card className="transition-all hover:bg-ui-component-hover">
               <CardHeader>
                 <div className="flex flex-col gap-2">
-                  <div className="text-sm text-low-contrast-text">
-                    {formatDateWithTimeAgo(post.publishedAt)}
+                  <div className="flex justify-between items-center">
+                    <div className="text-sm text-low-contrast-text">
+                      {formatDateWithTimeAgo(post.publishedAt)}
+                    </div>
+                    <div className="text-sm text-low-contrast-text whitespace-nowrap">
+                      {post.readingTime ? `${post.readingTime} read` : '5 mins read'}
+                    </div>
                   </div>
                   <CardTitle>{post.title}</CardTitle>
                   <CardDescription>{post.description}</CardDescription>

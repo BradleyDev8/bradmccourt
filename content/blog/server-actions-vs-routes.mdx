@@ -1,0 +1,46 @@
+---
+title: "Next.js Server Actions vs API Routes"
+description: "A comparison of server actions and API routes in Next.JS"
+publishedAt: "2025-03-04"
+author: "Bradley McCourt"
+readingTime: "5 mins"
+status: "published"
+---
+
+## Server Actions vs API Routes
+
+When server actions were first introduced in Next.js, it took me a while to fully understand how they work and what they were actually for. When I first came across server actions my initial thought was if it was a way to optimise data fetching… which certainly isn’t the case.
+
+### Data Fetching
+
+We don’t need server actions or route handlers (API Routes in the App Router) for data fetching in Next.js. Instead, we can fetch data directly in Server Components, this is the default method for fetching data in the App Router.
+
+But what if we need to fetch data in a Client Component? We’d create an endpoint by moving the fetching logic into a route handler and fetch data from this endpoint on the client side using SWR or TanStack Query. Right now, you might have the same thought I did “why not use a server action for this?” While you can technically fetch data using server actions it’s not recommended as they are designed for mutations, they create POST endpoints and run sequentially which isn’t ideal for data fetching.
+
+### Route Handlers
+
+In comparison, route handlers don’t have these limitations they can handle any HTTP method (GET, POST, PUT, DELETE, etc) making them the ideal choice for fetching data. They can also leverage Next.js’s built-in caching mechanisms for GET requests, something server actions can’t due to them being POST requests. In this example of a route handler, we see a clean setup for a GET request in Next.js’s App Router—the GET function grabs posts from the database with getPosts and sends them back as JSON. It’s a perfect fit for fetching data, especially since it can tap into Next.js’s caching for Client Components.
+
+In this example of a route handler, we see a clean setup for a GET request in Next.js’s App Router - the GET function grabs posts from the database with getPosts and sends them back as JSON. It’s a perfect fit for fetching data, especially since it can tap into Next.js’s caching for Client Components.
+
+![Server Actions vs API Routes](/blog-images/api-route.png)
+
+### Mutations
+
+Now, for mutations, we do want to use server actions. Mutations are operations that modify data on the server, such as creating, updating, or deleting records in a database. An example of this would be an Admin Panel where an admin can edit a users details like their name or email address. Server actions are integrated with Next.js revalidation and navigation systems, this allows us to do things like revalidatePath or revalidateTag to mutate and refetch data in one server round trip. If we were to try use revalidatePath in the route handler it wouldn’t work.
+
+When I set up this server action for creating posts, as shown here, the createPostAction calls createPost from my database library, then revalidatePath("/posts") refreshes the cache to update the UI instantly. It’s this tight integration with Next.js that makes Server Actions a go-to for mutations like this.
+
+![Server Actions Mutations](/blog-images/server-action.png)
+
+Let’s say we build a web app that uses server actions for mutations, and it works great. Now, we want to build a mobile app and reuse the same backend. The mobile app won’t be able to access the server actions directly, so do we need to duplicate all mutation logic as API routes? This is why it’s helpful to think about server actions and route handlers as different ports for logic, but the logic itself should live in a different place. This separate place is called the data access layer, if you can structure your app with this separate data access layer you can then reuse the same logic for different ports. That is how you decide whether to use server actions or route handlers.
+
+### Conclusion
+
+**When should you use Server Action?**
+
+When calling a mutation from within your Next.js application such as a POST, UPDATE or DELETE request. 
+
+**When should you use Route Handlers?**
+
+When fetching data from a Client Component as GET requests can be cached and are more suitable for reading data. Route Handlers are also the way to go when it comes to calling the API from an external source.
