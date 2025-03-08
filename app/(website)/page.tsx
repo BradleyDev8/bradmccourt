@@ -187,6 +187,35 @@ export default async function Home() {
                 {/* Project Section */}
                 <div className="flex flex-col gap-4">
                     <span className="font-medium">Projects</span>
+                    <div>
+                        <Card>
+                            <CardHeader>
+                                <div className="flex flex-col gap-4">
+                                    <div className="flex justify-between items-center">
+                                        <CardTitle>FoodFast</CardTitle>
+                                        <Link 
+                                            href="https://food-fast-peach.vercel.app"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-low-contrast-text hover:text-high-contrast-text transition-colors"
+                                        >
+                                            <FontAwesomeIcon icon={faLink} className="w-5 h-5" />
+                                        </Link>
+                                    </div>
+                                    <CardDescription>
+                                        <p>A web application that generates recipes based on the ingredients you have.</p>
+                                    </CardDescription>
+                                    <Image
+                                        src="/foodfast.png"
+                                        alt="FoodFast"
+                                        width={800}
+                                        height={400}
+                                        className="rounded-lg object-cover"
+                                    />
+                                </div>
+                            </CardHeader>
+                        </Card>
+                    </div>
                     <div className="flex flex-col gap-2">
                         <Card>
                             <CardHeader>
