@@ -12,7 +12,7 @@ import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
-import { formatDateWithTimeAgo } from "@/lib/string";
+import { DynamicDate } from "@/components/ui/dynamic-date";
 
 const techStack = [
     { name: "TypeScript", icon: "/tech-icons/TypeScript Icon.svg" },
@@ -109,7 +109,7 @@ export default async function Home() {
                                                     </div>
                                                 </div>
                                                 <div className="text-sm text-low-contrast-text">
-                                                    {formatDateWithTimeAgo(post.publishedAt)}
+                                                    {post.publishedAt && <DynamicDate date={post.publishedAt} />}
                                                 </div>
                                                 <CardDescription className="py-1">
                                                     {post.description}
