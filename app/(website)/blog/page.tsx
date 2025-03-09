@@ -1,7 +1,7 @@
 import { getAllPosts } from '@/lib/blog';
-import { formatDateWithTimeAgo } from '@/lib/string';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import Link from 'next/link';
+import { DynamicDate } from '@/components/ui/dynamic-date';
 
 export const metadata = {
   title: 'Blog | Brad McCourt',
@@ -41,7 +41,7 @@ export default async function BlogPage() {
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between items-center">
                     <div className="text-sm text-low-contrast-text">
-                      {formatDateWithTimeAgo(post.publishedAt)}
+                      {post.publishedAt && <DynamicDate date={post.publishedAt} />}
                     </div>
                     <div className="text-sm text-low-contrast-text whitespace-nowrap">
                       {post.readingTime ? `${post.readingTime} read` : '5 mins read'}
