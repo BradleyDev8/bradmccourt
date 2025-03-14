@@ -12,36 +12,21 @@ type ThemeContextType = {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark')
+  // Start with a placeholder value
+  const [theme, setTheme] = useState<Theme>('light')
   const [mounted, setMounted] = useState(false)
 
-  // Once mounted, we can show the UI
+  // Once mounted, determine the actual theme from the DOM
   useEffect(() => {
+    const isDark = document.documentElement.classList.contains('dark')
+    setTheme(isDark ? 'dark' : 'light')
     setMounted(true)
   }, [])
 
+  // Handle theme changes
   useEffect(() => {
-    // Only run this on the client side
     if (!mounted) return
 
-    // Check localStorage first
-    const storedTheme = localStorage.getItem('theme') as Theme
-    
-    // If there's a stored theme, use it
-    if (storedTheme) {
-      setTheme(storedTheme)
-    } else {
-      // Otherwise, check for system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-      setTheme(prefersDark ? 'dark' : 'light')
-    }
-  }, [mounted])
-
-  useEffect(() => {
-    // Only run this on the client side
-    if (!mounted) return
-
-    // Update the HTML class when theme changes
     const html = document.documentElement
     
     if (theme === 'dark') {
@@ -50,13 +35,12 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       html.classList.remove('dark')
     }
     
-    // Save to localStorage
     localStorage.setItem('theme', theme)
   }, [theme, mounted])
 
-  // Provide a value that doesn't cause hydration mismatch
+  // Provide the theme context value
   const value = {
-    theme,
+    theme: mounted ? theme : 'light', // Use light as default for server rendering
     setTheme,
   }
 
