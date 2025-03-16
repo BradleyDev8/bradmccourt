@@ -175,7 +175,7 @@ export default async function Home() {
                                         </div>
                                     </div>
                                     <CardDescription>
-                                        <p>providing a solution for students during the pandemic by creating a front-end application that
+                                        <p>Providing a solution for students during the pandemic by creating a front-end application that
                                         allowed students to check which PCs were available and in use for remote access.</p>
                                     </CardDescription>
                                 </div>
