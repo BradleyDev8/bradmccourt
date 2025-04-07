@@ -29,7 +29,7 @@ export default function Avatar({
                 <Image 
                     quality={100}
                     loading="eager" 
-                    src={isActive ? "/BradSki.png" : "/BradSkiReal.jpg"}
+                    src={isActive ? "/BradSki.png" : "/BradSkiReal.png"}
                     alt="Avatar" 
                     width={width} 
                     height={height}
