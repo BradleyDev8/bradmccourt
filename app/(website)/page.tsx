@@ -124,63 +124,59 @@ export default async function Home() {
                 </div>
                 {/* <Separator className="bg-white" /> */}
                 {/* Experience Section */}
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-8">
                     <span className="font-medium">Experience</span>
-                    <div className="flex flex-col gap-4">
-                        <Card>
-                            <CardHeader>
-                                <div className="flex flex-col gap-4">
-                                    <div className="flex flex-row gap-4 items-center">
-                                        <div className="flex min-w-[60px] w-[60px] h-[60px] md:min-w-[100px] md:w-[100px] md:h-[100px] items-center justify-center">
-                                            <Image
-                                                src="/hamrob.png"
-                                                alt="Hamilton Robson Logo"
-                                                width={100}
-                                                height={100}
-                                                className="w-full h-full object-contain bg-white rounded-lg"
-                                            />
-                                        </div>
-                                        <div>
-                                            <div className="text-sm text-low-contrast-text">
-                                                Jul 2023 — Present
-                                            </div>
-                                            <CardTitle>Hamilton Robson - Software Engineer</CardTitle>
-                                        </div>
-                                    </div>
-                                    <CardDescription>
-                                        <p>As a Full Stack Engineer, I specialise in developing scalable and efficient solutions across various platforms using
-                                        TypeScript, React, React Native, Node.js and Next.js.</p>
-                                    </CardDescription>
+                    
+                    <div className="flex flex-col gap-6">
+                        {/* Hamilton Robson */}
+                        <div className="flex items-start gap-4">
+                            <div className="flex-shrink-0">
+                                <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                                    <Image
+                                        src="/hamrob.png"
+                                        alt="Hamilton Robson Logo"
+                                        width={48}
+                                        height={48}
+                                        className="w-10 h-10 object-contain"
+                                    />
                                 </div>
-                            </CardHeader>
-                        </Card>
-                        <Card>
-                            <CardHeader>
-                                <div className="flex flex-col gap-4">
-                                    <div className="flex flex-row gap-4 items-center">
-                                        <div className="flex min-w-[60px] w-[60px] h-[60px] md:min-w-[100px] md:w-[100px] md:h-[100px] items-center justify-center">
-                                            <Image
-                                                src="/ulsterUni.png"
-                                                alt="Ulster University Logo"
-                                                width={100}
-                                                height={100}
-                                                className="w-full h-full object-contain bg-white rounded-lg"
-                                            />
-                                        </div>
-                                        <div>
-                                            <div className="text-sm text-low-contrast-text">
-                                                May 2021 — May 2022
-                                            </div>
-                                            <CardTitle>Ulster University - Web Developer (Placement)</CardTitle>
-                                        </div>
+                            </div>
+                            <div className="flex flex-col flex-grow">
+                                <div className="flex items-start justify-between">
+                                    <div className="flex flex-col">
+                                        <h3 className="text-base font-medium">Hamilton Robson</h3>
+                                        <p className="text-sm text-low-contrast-text">Software Engineer</p>
                                     </div>
-                                    <CardDescription>
-                                        <p>Providing a solution for students during the pandemic by creating a front-end application that
-                                        allowed students to check which PCs were available and in use for remote access.</p>
-                                    </CardDescription>
+                                    <span className="text-sm text-low-contrast-text whitespace-nowrap">Jul 2023 — Present</span>
                                 </div>
-                            </CardHeader>
-                        </Card>
+                              
+                            </div>
+                        </div>
+
+                        {/* Ulster University */}
+                        <div className="flex items-start gap-4">
+                            <div className="flex-shrink-0">
+                                <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                                    <Image
+                                        src="/ulsterUni.png"
+                                        alt="Ulster University Logo"
+                                        width={48}
+                                        height={48}
+                                        className="w-10 h-10 object-contain"
+                                    />
+                                </div>
+                            </div>
+                            <div className="flex flex-col flex-grow">
+                                <div className="flex items-start justify-between">
+                                    <div className="flex flex-col">
+                                        <h3 className="text-base font-medium">Ulster University</h3>
+                                        <p className="text-sm text-low-contrast-text">Web Developer (Placement)</p>
+                                    </div>
+                                    <span className="text-sm text-low-contrast-text whitespace-nowrap">May 2021 — May 2022</span>
+                                </div>
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
                 {/* <Separator className="bg-white" /> */}

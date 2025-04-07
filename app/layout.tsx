@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "Brad McCourt",
     images: [
       {
-        url: "/brad2.jpg",
+        url: "/BradSkiReal.jpg",
         width: 1200,
         height: 630,
         alt: "Brad McCourt - Software Engineer",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Brad McCourt - Software Engineer",
     description: "Brad McCourt is a software engineer and entrepreneur specialising in full stack development with Next.js, React, TypeScript, and Node.js.",
-    images: ["/brad2.jpg"],
+    images: ["/BradSkiReal.jpg"],
   },
   robots: {
     index: true,

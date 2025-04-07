@@ -29,12 +29,12 @@ export default function Avatar({
                 <Image 
                     quality={100}
                     loading="eager" 
-                    src={isActive ? "/neo.PNG" : "/brad2.jpg"}
+                    src={isActive ? "/BradSki.png" : "/BradSkiReal.jpg"}
                     alt="Avatar" 
                     width={width} 
                     height={height}
-                    className={`h-full w-full object-cover transition-all duration-300 ${
-                        isActive ? 'scale-110' : ''
+                    className={`h-full w-full object-cover object-top transition-all duration-300 ${
+                        isActive ? '' : ''
                     }`}
                 />
                 {/* Shiny effect overlay */}
