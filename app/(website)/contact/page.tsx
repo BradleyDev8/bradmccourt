@@ -3,6 +3,7 @@ import {
   faXTwitter,
   faLinkedin,
   faInstagram,
+  faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 
@@ -47,13 +48,13 @@ export default function Contact() {
             <FontAwesomeIcon icon={faLinkedin} className="h-6 w-6" />
           </Link>
           <Link
-            href="https://instagram.com/bradmccourt_"
+            href="https://github.com/BradleyDev8"
             target="_blank"
             rel="noopener noreferrer"
             className="text-high-contrast-text hover:opacity-90"
-            aria-label="Instagram"
+            aria-label="GitHub"
           >
-            <FontAwesomeIcon icon={faInstagram} className="h-6 w-6" />
+            <FontAwesomeIcon icon={faGithub} className="h-6 w-6" />
           </Link>
         </div>
       </div>
