@@ -128,6 +128,29 @@ export default async function Home() {
                     <span className="font-medium">Experience</span>
                     
                     <div className="flex flex-col gap-6">
+                    <div className="flex items-start gap-4">
+                            <div className="flex-shrink-0">
+                                <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                                    <Image
+                                        src="/opinlylogo.png"
+                                        alt="Opinly Logo"
+                                        width={48}
+                                        height={48}
+                                        className="w-10 h-10 object-contain"
+                                    />
+                                </div>
+                            </div>
+                            <div className="flex flex-col flex-grow">
+                                <div className="flex items-start justify-between">
+                                    <div className="flex flex-col">
+                                        <h3 className="text-base font-medium">Opinly</h3>
+                                        <p className="text-sm text-low-contrast-text">Senior Software Engineer</p>
+                                    </div>
+                                    <span className="text-sm text-low-contrast-text whitespace-nowrap">May 2025 — Present</span>
+                                </div>
+                              
+                            </div>
+                        </div>
                         {/* Hamilton Robson */}
                         <div className="flex items-start gap-4">
                             <div className="flex-shrink-0">
@@ -147,7 +170,7 @@ export default async function Home() {
                                         <h3 className="text-base font-medium">Hamilton Robson</h3>
                                         <p className="text-sm text-low-contrast-text">Software Engineer</p>
                                     </div>
-                                    <span className="text-sm text-low-contrast-text whitespace-nowrap">Jul 2023 — Present</span>
+                                    <span className="text-sm text-low-contrast-text whitespace-nowrap">Jul 2023 — May 2025</span>
                                 </div>
                               
                             </div>
