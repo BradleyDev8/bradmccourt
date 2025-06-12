@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
 import { DynamicDate } from "@/components/ui/dynamic-date";
+import DrawingCanvas from "@/components/DrawingCanvas";
 
 const techStack = [
     { name: "TypeScript", icon: "/tech-icons/TypeScript Icon.svg" },
@@ -203,6 +204,10 @@ export default async function Home() {
                     </div>
                 </div>
                 {/* <Separator className="bg-white" /> */}
+                
+                {/* Drawing Pad Section */}
+                <DrawingCanvas />
+
                 {/* Project Section */}
                 <div className="flex flex-col gap-4">
                     <span className="font-medium">Projects</span>
