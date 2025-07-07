@@ -1,5 +1,6 @@
-export const menuItems: {href: string, name: string, new?: boolean}[] = [
-    {href: "/", name: "Home"},
-    {href: "/contact", name: "Contact"},
-    {href: "/blog", name: "Blog"},
+export const menuItems: { href: string; name: string; new?: boolean }[] = [
+  { href: "/", name: "About" },
+  // {href: "/resume", name: "Resume"},
+  // {href: "/project", name: "Project"},
+  { href: "/blog", name: "Blog" },
 ];

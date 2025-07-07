@@ -20,7 +20,7 @@ export function NavigationMenu({ menuItems }: NavigationMenuProps) {
 
   return (
     <nav
-      className="block w-full border-b border-borders-non-interactive px-8 py-4 md:hidden"
+      className="hidden"
       aria-label="Mobile navigation"
     >
       <div className="flex w-full items-center justify-between">
