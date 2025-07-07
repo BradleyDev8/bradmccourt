@@ -43,7 +43,6 @@ export default async function Home() {
             <Avatar width={56} height={56} />
           </div>
           <div className="flex flex-col gap-2">
-            <span className="font-medium">About</span>
             <p>
               As a Full Stack Software Engineer at Opinly, I enjoy tackling
               complex problems and building scalable solutions that make a real

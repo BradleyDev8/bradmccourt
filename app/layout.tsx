@@ -91,7 +91,9 @@ export default function RootLayout({
           <PlausibleProvider domain="bradmccourt.xyz">
             <main className="mx-auto max-w-7xl px-4 md:px-8 flex flex-col md:flex-row gap-8 md:gap-12">
               <Sidebar />
-              <div className="flex-1 min-w-0">{children}</div>
+              <div className="flex-1 min-w-0">
+                {children}
+              </div>
             </main>
           </PlausibleProvider>
         </ThemeProvider>
