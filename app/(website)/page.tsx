@@ -1,5 +1,3 @@
-import Avatar from "@/components/ui/avatar";
-// import { Separator } from "@/components/ui/separator";
 import {
   Card,
   CardDescription,

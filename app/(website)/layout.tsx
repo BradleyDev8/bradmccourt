@@ -1,6 +1,5 @@
 import { NavigationMenu } from "@/components/ui/navigation-menu";
 import { DesktopNavigation } from "@/components/ui/desktop-navigation";
-import Sidebar from "@/components/ui/sidebar";
 import { menuItems } from "./menu-items";
 import Footer from "@/components/ui/footer";
 
