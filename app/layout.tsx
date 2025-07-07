@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import PlausibleProvider from "next-plausible";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Sidebar from "@/components/ui/sidebar";
+import MobileBottomNav from "@/components/ui/mobile-bottom-nav";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -83,7 +84,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${inter.className} overflow-x-hidden bg-app-bg text-high-contrast-text relative top-8`}
+        className={`${inter.className} overflow-x-hidden bg-app-bg text-high-contrast-text relative top-8 pb-28 md:pb-0`}
         suppressHydrationWarning
       >
         <ThemeProvider>
@@ -95,6 +96,7 @@ export default function RootLayout({
               </div>
               <Sidebar />
             </main>
+            <MobileBottomNav />
           </PlausibleProvider>
         </ThemeProvider>
       </body>
