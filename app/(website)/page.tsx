@@ -39,9 +39,6 @@ export default async function Home() {
     <>
       <main className="flex flex-col gap-16 md:gap-24">
         <div className="flex flex-col gap-2 md:gap-12">
-          <div className="block md:hidden">
-            <Avatar width={56} height={56} />
-          </div>
           <div className="flex flex-col gap-2">
             <p>
               As a Full Stack Software Engineer at Opinly, I enjoy tackling

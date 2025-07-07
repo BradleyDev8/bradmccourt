@@ -60,7 +60,7 @@ export default function Sidebar() {
   ];
 
   return (
-    <aside className="md:sticky md:top-8 h-fit w-full md:w-72 flex-shrink-0">
+    <aside className="order-1 md:order-1 md:sticky md:top-8 h-fit w-full md:w-72 flex-shrink-0">
       <div className="bg-zinc-900/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-zinc-800">
         {/* Profile Section */}
         <div className="text-center mb-6">
