@@ -11,7 +11,7 @@ export default function WebsiteLayout({
   return (
     <>
       <NavigationMenu menuItems={menuItems} />
-      <div className="relative bg-zinc-900/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-zinc-800">
+      <div className="relative bg-zinc-900/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl border border-zinc-800 mb-8">
         <DesktopNavigation menuItems={menuItems} />
         <div className="flex flex-col gap-16 md:gap-24">
           {children}

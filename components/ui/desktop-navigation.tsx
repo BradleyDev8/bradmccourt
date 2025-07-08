@@ -23,7 +23,8 @@ export function DesktopNavigation({ menuItems }: DesktopNavigationProps) {
 
   const isActive = (path: string) => {
     if (path === "/blog" && currentPath.startsWith("/blog")) return true;
-    else if (path === "/project" && currentPath.startsWith("/project")) return true;
+    else if (path === "/project" && currentPath.startsWith("/project"))
+      return true;
     return currentPath === path;
   };
 
@@ -35,7 +36,7 @@ export function DesktopNavigation({ menuItems }: DesktopNavigationProps) {
   }, [currentPath, menuItems]);
 
   return (
-    <header className="navbar">
+    <header className="navbar hidden md:block">
       <BlurFade direction="up">
         <ul className="flex items-center justify-center navbar-list">
           {menuItems.map((item) => (
