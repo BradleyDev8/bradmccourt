@@ -25,6 +25,8 @@ export function DesktopNavigation({ menuItems }: DesktopNavigationProps) {
     if (path === "/blog" && currentPath.startsWith("/blog")) return true;
     else if (path === "/project" && currentPath.startsWith("/project"))
       return true;
+    else if (path === "/resume" && currentPath.startsWith("/resume"))
+      return true;
     return currentPath === path;
   };
 

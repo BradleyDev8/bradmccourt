@@ -27,17 +27,17 @@ const techStack = {
   backend: [
     { name: "Python", icon: "/tech-icons/Python Icon.svg" },
     { name: "AWS", icon: "/tech-icons/AWS Icon.svg" },
-    { name: "Django", icon: "/tech-icons/Django Icon.svg" },
-    { name: "Go", icon: "/tech-icons/Go Icon.svg" },
     { name: "Docker", icon: "/tech-icons/Docker Icon.svg" },
-    { name: "FastAPI", icon: "/tech-icons/FastAPI Icon.svg" },
-    { name: "GitHub", icon: "/tech-icons/GitHub Icon.svg" },
+    { name: "Node.js", icon: "/tech-icons/Node.js Icon.svg" },
+    { name: "Express", icon: "/tech-icons/Express Icon.svg" },
   ],
   database: [
-    { name: "Redis", icon: "/tech-icons/Redis Icon.svg" },
-    { name: "Supabase", icon: "/tech-icons/Supabase Icon.svg" },
-    { name: "Firebase", icon: "/tech-icons/Firebase Icon.svg" },
-    { name: "DynamoDB", icon: "/tech-icons/DynamoDB Icon.svg" },
+    { name: "DynamoDB", icon: "/dynamodb.svg" },
+    { name: "RDS", icon: "/aws-rds.svg" },
+    { name: "PlanetScale", icon: "/tech-icons/PlanetScale Icon.svg" },
+    { name: "Supabase", icon: "/supabase-dark.svg" },
+    { name: "Neon", icon: "/neon-icon.svg" },
+    { name: "MongoDB", icon: "/mongodb-wordmark.svg" },
   ],
 };
 
@@ -221,97 +221,6 @@ export default async function Home() {
                     </TooltipProvider>
                   </div>
                 </Card>
-              </div>
-            </div>
-          </div>
-          {/* <Separator className="bg-white" /> */}
-          {/* Experience Section */}
-          <div className="flex flex-col gap-8">
-            <span className="font-medium">Experience</span>
-
-            <div className="flex flex-col gap-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                    <Image
-                      src="/opinlylogo.png"
-                      alt="Opinly Logo"
-                      width={48}
-                      height={48}
-                      className="w-10 h-10 object-contain"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col flex-grow">
-                  <div className="flex items-start justify-between">
-                    <div className="flex flex-col">
-                      <h3 className="text-base font-medium">Opinly</h3>
-                      <p className="text-sm text-low-contrast-text">
-                        Senior Software Engineer
-                      </p>
-                    </div>
-                    <span className="text-sm text-low-contrast-text whitespace-nowrap">
-                      May 2025 — Present
-                    </span>
-                  </div>
-                </div>
-              </div>
-              {/* Hamilton Robson */}
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                    <Image
-                      src="/hamrob.png"
-                      alt="Hamilton Robson Logo"
-                      width={48}
-                      height={48}
-                      className="w-10 h-10 object-contain"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col flex-grow">
-                  <div className="flex items-start justify-between">
-                    <div className="flex flex-col">
-                      <h3 className="text-base font-medium">Hamilton Robson</h3>
-                      <p className="text-sm text-low-contrast-text">
-                        Software Engineer
-                      </p>
-                    </div>
-                    <span className="text-sm text-low-contrast-text whitespace-nowrap">
-                      Jul 2023 — May 2025
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Ulster University */}
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                    <Image
-                      src="/ulsterUni.png"
-                      alt="Ulster University Logo"
-                      width={48}
-                      height={48}
-                      className="w-10 h-10 object-contain"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col flex-grow">
-                  <div className="flex items-start justify-between">
-                    <div className="flex flex-col">
-                      <h3 className="text-base font-medium">
-                        Ulster University
-                      </h3>
-                      <p className="text-sm text-low-contrast-text">
-                        Web Developer (Placement)
-                      </p>
-                    </div>
-                    <span className="text-sm text-low-contrast-text whitespace-nowrap">
-                      May 2021 — May 2022
-                    </span>
-                  </div>
-                </div>
               </div>
             </div>
           </div>

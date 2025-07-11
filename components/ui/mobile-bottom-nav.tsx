@@ -9,12 +9,12 @@ export default function MobileBottomNav() {
       label: "About",
     },
     {
-      href: "/blog",
-      label: "Blog",
+      href: "/resume",
+      label: "Resume",
     },
     {
-      href: "/contact",
-      label: "Contact",
+      href: "/blog",
+      label: "Blog",
     },
   ];
 
