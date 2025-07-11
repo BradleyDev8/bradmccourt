@@ -11,23 +11,33 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { faLink } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { getAllPosts } from "@/lib/blog";
 import { DynamicDate } from "@/components/ui/dynamic-date";
 
-const techStack = [
-  { name: "TypeScript", icon: "/tech-icons/TypeScript Icon.svg" },
-  // { name: "JavaScript", icon: "/tech-icons/JavaScript Icon.svg" },
-  { name: "React", icon: "/tech-icons/React Icon.svg" },
-  { name: "Next.js", icon: "/tech-icons/Next.js Icon.svg" },
-  { name: "Node.js", icon: "/tech-icons/Node.js Icon.svg" },
-  { name: "Tailwind CSS", icon: "/tech-icons/Tailwind CSS Icon.svg" },
-  // { name: "Git", icon: "/tech-icons/Git Icon.svg" },
-  // { name: "Docker", icon: "/tech-icons/Docker Icon.svg" },
-  { name: "AWS", icon: "/tech-icons/AWS Icon.svg" },
-];
+const techStack = {
+  frontend: [
+    { name: "TypeScript", icon: "/tech-icons/TypeScript Icon.svg" },
+    { name: "React", icon: "/tech-icons/React Icon.svg" },
+    { name: "Next.js", icon: "/tech-icons/Next.js Icon.svg" },
+    { name: "Tailwind CSS", icon: "/tech-icons/Tailwind CSS Icon.svg" },
+  ],
+  backend: [
+    { name: "Python", icon: "/tech-icons/Python Icon.svg" },
+    { name: "AWS", icon: "/tech-icons/AWS Icon.svg" },
+    { name: "Docker", icon: "/tech-icons/Docker Icon.svg" },
+    { name: "Node.js", icon: "/tech-icons/Node.js Icon.svg" },
+    { name: "Express", icon: "/tech-icons/Express Icon.svg" },
+  ],
+  database: [
+    { name: "DynamoDB", icon: "/dynamodb.svg" },
+    { name: "RDS", icon: "/aws-rds.svg" },
+    { name: "PlanetScale", icon: "/tech-icons/PlanetScale Icon.svg" },
+    { name: "Supabase", icon: "/supabase-dark.svg" },
+    { name: "Neon", icon: "/neon-icon.svg" },
+    { name: "MongoDB", icon: "/mongodb-wordmark.svg" },
+  ],
+};
 
 export default async function Home() {
   const posts = await getAllPosts();
@@ -46,289 +56,170 @@ export default async function Home() {
             </p>
           </div>
           {/* <Separator className="bg-white" /> */}
-          {/* Tech Stack Section */}
-          <div className="flex flex-col gap-2">
-            <span className="font-medium">Tech Stack</span>
-            <div className="grid grid-cols-3 gap-4">
-              <TooltipProvider>
-                {techStack.map((tech) => (
-                  <Tooltip key={tech.name}>
-                    <TooltipTrigger>
-                      <Card className="flex items-center justify-center p-3 md:p-6 transition-colors">
-                        <Image
-                          src={tech.icon}
-                          alt={`${tech.name} icon`}
-                          width={48}
-                          height={48}
-                          className="w-8 h-8 md:w-12 md:h-12"
-                        />
-                      </Card>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p className="text-white">{tech.name}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                ))}
-              </TooltipProvider>
-            </div>
-          </div>
-          {/* <Separator className="bg-white" /> */}
-          {/* Latest Articles Section */}
-          <div className="flex flex-col gap-4">
-            <span className="font-medium">Latest Articles</span>
-            <p className="text-low-contrast-text">
-              I love writing about tech, programming, and life in general. Here
-              are a few of my latest articles. You can find more on my{" "}
-              <Link href="/blog" className="text-[#2E8B57] hover:underline">
-                blog page
-              </Link>
-              .
-            </p>
-            <div className="flex flex-col gap-4">
-              {latestPosts.map((post) =>
-                post.status === "coming-soon" ? (
-                  <Card
-                    className="transition-all hover:bg-ui-component-hover opacity-60"
-                    key={post.slug}
-                  >
-                    <CardHeader>
-                      <div className="flex flex-col gap-2">
-                        <div className="flex justify-between items-center">
-                          <CardTitle className="mr-2">{post.title}</CardTitle>
-                          <div className="text-sm text-low-contrast-text whitespace-nowrap">
-                            {post.readingTime
-                              ? `${post.readingTime} read`
-                              : "🤔 mins read"}
-                          </div>
-                        </div>
-                        <div className="text-sm text-low-contrast-text">
-                          Coming Soon
-                        </div>
-                        <CardDescription className="py-1">
-                          {post.description}
-                        </CardDescription>
-                      </div>
-                    </CardHeader>
-                  </Card>
-                ) : (
-                  <Link href={`/blog/${post.slug}`} key={post.slug}>
-                    <Card className="transition-all hover:bg-ui-component-hover">
-                      <CardHeader>
-                        <div className="flex flex-col gap-2">
-                          <div className="flex justify-between items-center">
-                            <CardTitle className="mr-2">{post.title}</CardTitle>
-                            <div className="text-sm text-low-contrast-text whitespace-nowrap">
-                              {post.readingTime
-                                ? `${post.readingTime} read`
-                                : "8 mins read"}
-                            </div>
-                          </div>
-                          <div className="text-sm text-low-contrast-text">
-                            {post.publishedAt && (
-                              <DynamicDate date={post.publishedAt} />
-                            )}
-                          </div>
-                          <CardDescription className="py-1">
-                            {post.description}
-                          </CardDescription>
-                        </div>
-                      </CardHeader>
-                    </Card>
-                  </Link>
-                )
-              )}
-            </div>
-          </div>
-          {/* <Separator className="bg-white" /> */}
-          {/* Experience Section */}
+          {/* My Writings & Technology Section */}
           <div className="flex flex-col gap-8">
-            <span className="font-medium">Experience</span>
+            <span className="font-medium text-lg">My Writings</span>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Latest Articles Column */}
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-4">
+                  {latestPosts.slice(0, 3).map((post) =>
+                    post.status === "coming-soon" ? (
+                      <Card
+                        className="transition-all hover:bg-ui-component-hover opacity-60"
+                        key={post.slug}
+                      >
+                        <CardHeader>
+                          <div className="flex flex-col gap-2">
+                            <div className="flex justify-between items-center">
+                              <CardTitle className="mr-2 text-sm">
+                                {post.title}
+                              </CardTitle>
+                              <div className="text-xs text-low-contrast-text whitespace-nowrap">
+                                {post.readingTime
+                                  ? `${post.readingTime} read`
+                                  : "🤔 mins read"}
+                              </div>
+                            </div>
+                            <div className="text-xs text-low-contrast-text">
+                              Coming Soon
+                            </div>
+                            <CardDescription className="py-1 text-xs">
+                              {post.description}
+                            </CardDescription>
+                          </div>
+                        </CardHeader>
+                      </Card>
+                    ) : (
+                      <Link href={`/blog/${post.slug}`} key={post.slug}>
+                        <Card className="transition-all hover:bg-ui-component-hover">
+                          <CardHeader>
+                            <div className="flex flex-col gap-2">
+                              <div className="flex justify-between items-center">
+                                <CardTitle className="mr-2 text-sm">
+                                  {post.title}
+                                </CardTitle>
+                                <div className="text-xs text-low-contrast-text whitespace-nowrap">
+                                  {post.readingTime
+                                    ? `${post.readingTime} read`
+                                    : "8 mins read"}
+                                </div>
+                              </div>
+                              <div className="text-xs text-low-contrast-text">
+                                {post.publishedAt && (
+                                  <DynamicDate date={post.publishedAt} />
+                                )}
+                              </div>
+                              <CardDescription className="py-1 text-xs">
+                                {post.description}
+                              </CardDescription>
+                            </div>
+                          </CardHeader>
+                        </Card>
+                      </Link>
+                    )
+                  )}
+                </div>
+                <Link
+                  href="/blog"
+                  className="text-sm text-[#2E8B57] hover:underline self-start"
+                >
+                  View All My Writings
+                </Link>
+              </div>
 
-            <div className="flex flex-col gap-6">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                    <Image
-                      src="/opinlylogo.png"
-                      alt="Opinly Logo"
-                      width={48}
-                      height={48}
-                      className="w-10 h-10 object-contain"
-                    />
+              {/* Tech Stack Column */}
+              <div className="flex flex-col gap-4">
+                <Card className="p-4 flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-yellow-500">⚡</span>
+                    <span className="font-medium">frontend</span>
                   </div>
-                </div>
-                <div className="flex flex-col flex-grow">
-                  <div className="flex items-start justify-between">
-                    <div className="flex flex-col">
-                      <h3 className="text-base font-medium">Opinly</h3>
-                      <p className="text-sm text-low-contrast-text">
-                        Senior Software Engineer
-                      </p>
-                    </div>
-                    <span className="text-sm text-low-contrast-text whitespace-nowrap">
-                      May 2025 — Present
-                    </span>
+                  <div className="flex flex-wrap gap-3">
+                    <TooltipProvider>
+                      {techStack.frontend.map((tech) => (
+                        <Tooltip key={tech.name}>
+                          <TooltipTrigger>
+                            <div className="flex items-center gap-2 bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-md text-xs">
+                              <Image
+                                src={tech.icon}
+                                alt={`${tech.name} icon`}
+                                width={16}
+                                height={16}
+                                className="w-4 h-4"
+                              />
+                              {tech.name}
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p className="text-white">{tech.name}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      ))}
+                    </TooltipProvider>
                   </div>
-                </div>
-              </div>
-              {/* Hamilton Robson */}
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                    <Image
-                      src="/hamrob.png"
-                      alt="Hamilton Robson Logo"
-                      width={48}
-                      height={48}
-                      className="w-10 h-10 object-contain"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col flex-grow">
-                  <div className="flex items-start justify-between">
-                    <div className="flex flex-col">
-                      <h3 className="text-base font-medium">Hamilton Robson</h3>
-                      <p className="text-sm text-low-contrast-text">
-                        Software Engineer
-                      </p>
-                    </div>
-                    <span className="text-sm text-low-contrast-text whitespace-nowrap">
-                      Jul 2023 — May 2025
-                    </span>
-                  </div>
-                </div>
-              </div>
+                </Card>
 
-              {/* Ulster University */}
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                    <Image
-                      src="/ulsterUni.png"
-                      alt="Ulster University Logo"
-                      width={48}
-                      height={48}
-                      className="w-10 h-10 object-contain"
-                    />
+                <Card className="p-4 flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-yellow-500">⚡</span>
+                    <span className="font-medium">backend</span>
                   </div>
-                </div>
-                <div className="flex flex-col flex-grow">
-                  <div className="flex items-start justify-between">
-                    <div className="flex flex-col">
-                      <h3 className="text-base font-medium">
-                        Ulster University
-                      </h3>
-                      <p className="text-sm text-low-contrast-text">
-                        Web Developer (Placement)
-                      </p>
-                    </div>
-                    <span className="text-sm text-low-contrast-text whitespace-nowrap">
-                      May 2021 — May 2022
-                    </span>
+                  <div className="flex flex-wrap gap-3">
+                    <TooltipProvider>
+                      {techStack.backend.map((tech) => (
+                        <Tooltip key={tech.name}>
+                          <TooltipTrigger>
+                            <div className="flex items-center gap-2 bg-orange-100 dark:bg-orange-900/20 text-orange-800 dark:text-orange-200 px-2 py-1 rounded-md text-xs">
+                              <Image
+                                src={tech.icon}
+                                alt={`${tech.name} icon`}
+                                width={16}
+                                height={16}
+                                className="w-4 h-4"
+                              />
+                              {tech.name}
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p className="text-white">{tech.name}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      ))}
+                    </TooltipProvider>
                   </div>
-                </div>
+                </Card>
+
+                <Card className="p-4 flex flex-col gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-yellow-500">⚡</span>
+                    <span className="font-medium">database</span>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <TooltipProvider>
+                      {techStack.database.map((tech) => (
+                        <Tooltip key={tech.name}>
+                          <TooltipTrigger>
+                            <div className="flex items-center gap-2 bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-200 px-2 py-1 rounded-md text-xs">
+                              <Image
+                                src={tech.icon}
+                                alt={`${tech.name} icon`}
+                                width={16}
+                                height={16}
+                                className="w-4 h-4"
+                              />
+                              {tech.name}
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p className="text-white">{tech.name}</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      ))}
+                    </TooltipProvider>
+                  </div>
+                </Card>
               </div>
-            </div>
-          </div>
-          {/* <Separator className="bg-white" /> */}
-          {/* Project Section */}
-          <div className="flex flex-col gap-4">
-            <span className="font-medium">Projects</span>
-            <div>
-              <Card>
-                <CardHeader>
-                  <div className="flex flex-col gap-4">
-                    <div className="flex justify-between items-center">
-                      <CardTitle>FoodFast</CardTitle>
-                      <Link
-                        href="https://food-fast-peach.vercel.app"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-low-contrast-text hover:text-high-contrast-text transition-colors"
-                      >
-                        <FontAwesomeIcon icon={faLink} className="w-5 h-5" />
-                      </Link>
-                    </div>
-                    <CardDescription>
-                      <p>
-                        A web application that generates recipes based on the
-                        ingredients you have.
-                      </p>
-                    </CardDescription>
-                    <Image
-                      src="/foodfast.png"
-                      alt="FoodFast"
-                      width={800}
-                      height={400}
-                      className="rounded-lg object-cover"
-                    />
-                  </div>
-                </CardHeader>
-              </Card>
-            </div>
-            <div className="flex flex-col gap-2">
-              <Card>
-                <CardHeader>
-                  <div className="flex flex-col gap-4">
-                    <div className="flex justify-between items-center">
-                      <CardTitle>Owens Academy</CardTitle>
-                      <Link
-                        href="https://www.owensacademy.org/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-low-contrast-text hover:text-high-contrast-text transition-colors"
-                      >
-                        <FontAwesomeIcon icon={faLink} className="w-5 h-5" />
-                      </Link>
-                    </div>
-                    <CardDescription>
-                      <p>
-                        Irish Dancing School Website - Built with Next.js,
-                        Tailwind CSS, and TypeScript
-                      </p>
-                    </CardDescription>
-                    <Image
-                      src="/owensAca.png"
-                      alt="Owens Academy Website Screenshot"
-                      width={800}
-                      height={400}
-                      className="rounded-lg object-cover"
-                    />
-                  </div>
-                </CardHeader>
-              </Card>
-            </div>
-            <div>
-              <Card>
-                <CardHeader>
-                  <div className="flex flex-col gap-4">
-                    <div className="flex justify-between items-center">
-                      <CardTitle>Comeback Generator</CardTitle>
-                      <Link
-                        href="https://comeback-generator-chi.vercel.app/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-low-contrast-text hover:text-high-contrast-text transition-colors"
-                      >
-                        <FontAwesomeIcon icon={faLink} className="w-5 h-5" />
-                      </Link>
-                    </div>
-                    <CardDescription>
-                      <p>
-                        A simple tool that generates comebacks for any
-                        situation.
-                      </p>
-                    </CardDescription>
-                    <Image
-                      src="/comebackGenerator.png"
-                      alt="Comeback Generator"
-                      width={800}
-                      height={400}
-                      className="rounded-lg object-cover"
-                    />
-                  </div>
-                </CardHeader>
-              </Card>
             </div>
           </div>
           {/* <Separator className="bg-white" /> */}
