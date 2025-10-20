@@ -2,63 +2,19 @@
 
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faXTwitter,
-  faLinkedin,
-  faGithub,
-} from "@fortawesome/free-brands-svg-icons";
-import { faLocationDot, faEnvelope, faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import Avatar from "@/components/ui/avatar";
 import { useState } from "react";
+import { contactInfo as contactInfoData } from "@/lib/data/contact-info";
+import { socialLinks as socialLinksData } from "@/lib/data/social-links";
+import { profile } from "@/lib/data/profile";
 
 export default function Sidebar() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const currentYear = new Date().getFullYear();
 
-  const contactInfo = [
-    {
-      icon: faLocationDot,
-      label: "LOCATION",
-      value: "Belfast, Ireland 🇮🇪",
-      link: null,
-    },
-    {
-      icon: faEnvelope,
-      label: "EMAIL",
-      value: "bradleymccourt@live.com",
-      link: "mailto:bradleymccourt@live.com",
-    },
-    {
-      icon: faGithub,
-      label: "GITHUB",
-      value: "@BradleyDev8",
-      link: "https://github.com/BradleyDev8",
-    },
-    {
-      icon: faLinkedin,
-      label: "LINKEDIN",
-      value: "in/bradley-mccourt",
-      link: "https://linkedin.com/in/bradley-mccourt-777063149",
-    },
-  ];
-
-  const socialLinks = [
-    {
-      icon: faGithub,
-      href: "https://github.com/BradleyDev8",
-      label: "GitHub",
-    },
-    {
-      icon: faLinkedin,
-      href: "https://linkedin.com/in/bradley-mccourt-777063149",
-      label: "LinkedIn",
-    },
-    {
-      icon: faXTwitter,
-      href: "https://twitter.com/LewisBradley77",
-      label: "Twitter",
-    },
-  ];
+  const contactInfo = contactInfoData;
+  const socialLinks = socialLinksData;
 
   return (
     <aside className="order-1 md:order-1 md:sticky md:top-8 h-fit w-full md:w-72 flex-shrink-0">
@@ -83,11 +39,11 @@ export default function Sidebar() {
           </div>
 
           <h1 className="text-white text-xl font-semibold mb-1">
-            Brad McCourt
+            {profile.name}
           </h1>
 
           <div className="flex items-center justify-center gap-2 text-sm">
-            <span className="text-gray-300">Software Engineer</span>
+            <span className="text-gray-300">{profile.title}</span>
           </div>
         </div>
 
@@ -163,10 +119,10 @@ export default function Sidebar() {
             <p className="text-gray-500 text-xs">
               © {currentYear}{" "}
               <Link
-                href="https://bradmccourt.xyz"
+                href={profile.siteUrl}
                 className="hover:text-orange-400 transition-colors"
               >
-                Brad McCourt
+                {profile.name}
               </Link>
             </p>
             <div className="flex justify-center gap-2 mt-2 text-xs">

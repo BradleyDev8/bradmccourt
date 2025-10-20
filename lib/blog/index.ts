@@ -33,14 +33,42 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   return [...comingSoonPosts, ...sortedRegularPosts];
 }
 
+function validateBlogPostData(data: any, slug: string): data is Omit<BlogPost, 'slug' | 'content'> {
+  const requiredFields = ['title', 'description', 'publishedAt'];
+  const missingFields = requiredFields.filter(field => !data[field]);
+
+  if (missingFields.length > 0) {
+    console.error(`Blog post ${slug} is missing required fields: ${missingFields.join(', ')}`);
+    return false;
+  }
+
+  return true;
+}
+
 export async function getPostBySlug(slug: string): Promise<BlogPost> {
-  const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
-  const fileContent = fs.readFileSync(filePath, 'utf8');
-  const { data, content } = matter(fileContent);
-  
-  return {
-    slug,
-    content,
-    ...data as Omit<BlogPost, 'slug' | 'content'>
-  };
+  try {
+    const filePath = path.join(BLOG_DIR, `${slug}.mdx`);
+
+    // Check if file exists
+    if (!fs.existsSync(filePath)) {
+      throw new Error(`Blog post not found: ${slug}`);
+    }
+
+    const fileContent = fs.readFileSync(filePath, 'utf8');
+    const { data, content } = matter(fileContent);
+
+    // Validate that required fields exist
+    if (!validateBlogPostData(data, slug)) {
+      throw new Error(`Blog post ${slug} has invalid metadata`);
+    }
+
+    return {
+      slug,
+      content,
+      ...data as Omit<BlogPost, 'slug' | 'content'>
+    };
+  } catch (error) {
+    console.error(`Error loading blog post ${slug}:`, error);
+    throw error;
+  }
 }
