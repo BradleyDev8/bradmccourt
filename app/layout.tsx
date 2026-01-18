@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import PlausibleProvider from "next-plausible";
-import { ThemeProvider } from "@/components/ui/theme-provider";
 import Sidebar from "@/components/ui/sidebar";
 import MobileBottomNav from "@/components/ui/mobile-bottom-nav";
 
@@ -64,41 +63,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  const storedTheme = localStorage.getItem('theme');
-                  if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark');
-                  } else {
-                    document.documentElement.classList.remove('dark');
-                  }
-                } catch (e) {}
-              })()
-            `,
-          }}
-        />
-      </head>
+    <html lang="en" className="scroll-smooth dark">
       <body
         className={`${inter.className} overflow-x-hidden bg-app-bg text-high-contrast-text relative top-8 pb-28 md:pb-0`}
-        suppressHydrationWarning
       >
-        <ThemeProvider>
-          <Analytics />
-          <PlausibleProvider domain="bradmccourt.xyz">
-            <main className="mx-auto max-w-7xl px-4 md:px-8 flex flex-col md:flex-row gap-8 md:gap-12">
-              <div className="flex-1 min-w-0 order-2 md:order-2">
-                {children}
-              </div>
-              <Sidebar />
-            </main>
-            <MobileBottomNav />
-          </PlausibleProvider>
-        </ThemeProvider>
+        <Analytics />
+        <PlausibleProvider domain="bradmccourt.xyz">
+          <main className="mx-auto max-w-7xl px-4 md:px-8 flex flex-col md:flex-row gap-8 md:gap-12">
+            <div className="flex-1 min-w-0 order-2 md:order-2">
+              {children}
+            </div>
+            <Sidebar />
+          </main>
+          <MobileBottomNav />
+        </PlausibleProvider>
       </body>
     </html>
   );
